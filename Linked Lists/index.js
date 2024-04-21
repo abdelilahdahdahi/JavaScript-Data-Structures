@@ -71,6 +71,25 @@ class LinkedList {
     }
 
     // ------------- Get at index -------------
+    getAt(index) {
+
+        if (index < 0 || index > this.size) {
+            return 'out of range';
+        }
+        else if (index === 0) {
+            return this.head;
+        }
+        else {
+            let count = 0;
+            let current = this.head;
+
+            while (count < index) {
+                current = current.next;
+                count ++;
+            }
+            return current;
+        }
+    }
 
     // ------------- Remove at index -------------
 
@@ -93,5 +112,7 @@ const linkedList = new LinkedList();
 linkedList.insertFirst(100);
 linkedList.insertFirst(200);
 linkedList.insertFirst(300);
-linkedList.insertAt(500, 0);
+
 linkedList.printListData();
+
+console.log(linkedList.getAt(0));
