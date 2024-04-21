@@ -11,13 +11,13 @@ class LinkedList {
         this.size = 0;
     }
 
-    // 1- Insert first node
+    // ------------- Insert first node -------------
     insertFirst(data) {
         this.head = new Node(data, this.head);
         this.size ++;
     }
 
-    // 2- Insert last node
+    // ------------- Insert last node -------------
     insertLast(data) {
         let node = new Node(data);
         let current;
@@ -25,7 +25,8 @@ class LinkedList {
         // if empty, insert as head
         if (this.head == null) {
             this.head = node;
-        } else {
+        } 
+        else {
             current = this.head;
 
             while (current.next) {
@@ -37,7 +38,7 @@ class LinkedList {
         this.size ++;
     }
 
-    // 3- Insert at index
+    // ------------- Insert at index -------------
     insertAt(data, index) {
 
         // if index is out of range
@@ -69,13 +70,13 @@ class LinkedList {
         this.size ++;
     }
 
-    // Get at index
+    // ------------- Get at index -------------
 
-    // Remove at index
+    // ------------- Remove at index -------------
 
-    // Clear list 
+    // ------------- Clear list -------------
 
-    // Print list data
+    // ------------- Print list data -------------
     printListData() {
         let current = this.head;
 
