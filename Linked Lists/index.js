@@ -11,8 +11,8 @@ class LinkedList {
         this.size = 0;
     }
 
-    checkIfIndexOutOfRange(index, size) {
-        if (index < 0 || index > size) {
+    checkIfIndexOutOfRange(index) {
+        if (index < 0 || index > this.size) {
             return true;
         }
         return false;
@@ -80,7 +80,7 @@ class LinkedList {
     // ------------- Get at index -------------
     getAt(index) {
 
-        if (this.checkIfIndexOutOfRange(index, this.size)) {
+        if (this.checkIfIndexOutOfRange(index)) {
             return 'out of range';
         }
         else if (index === 0) {
@@ -100,8 +100,11 @@ class LinkedList {
 
     // ------------- Remove at index -------------
     removeAt(index) {
-        if (this.checkIfIndexOutOfRange(index, this.size)) {
+        if (this.checkIfIndexOutOfRange(index)) {
             return 'out of range';
+        }
+        else {
+
         }
     }
 
