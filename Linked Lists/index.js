@@ -11,6 +11,13 @@ class LinkedList {
         this.size = 0;
     }
 
+    checkIfIndexOutOfRange(index, size) {
+        if (index < 0 || index > size) {
+            return true;
+        }
+        return false;
+    }
+
     // ------------- Insert first node -------------
     insertFirst(data) {
         this.head = new Node(data, this.head);
@@ -73,7 +80,7 @@ class LinkedList {
     // ------------- Get at index -------------
     getAt(index) {
 
-        if (index < 0 || index > this.size) {
+        if (this.checkIfIndexOutOfRange(index, this.size)) {
             return 'out of range';
         }
         else if (index === 0) {
@@ -92,6 +99,11 @@ class LinkedList {
     }
 
     // ------------- Remove at index -------------
+    removeAt(index) {
+        if (this.checkIfIndexOutOfRange(index, this.size)) {
+            return 'out of range';
+        }
+    }
 
     // ------------- Clear list -------------
 
@@ -115,4 +127,4 @@ linkedList.insertFirst(300);
 
 linkedList.printListData();
 
-console.log(linkedList.getAt(0));
+console.log(linkedList.getAt(2));
