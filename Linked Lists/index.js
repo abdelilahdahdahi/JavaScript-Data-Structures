@@ -103,25 +103,31 @@ class LinkedList {
         if (this.checkIfIndexOutOfRange(index)) {
             return 'out of range';
         }
-        else if (index === 0 && this.size == 1) {
-            this.head = null;
-            this.size = 0;
-        } else {
-            let count = 0;
-            let current = this.head;
+        
+        let current = this.head;
+        let previous;
+        let count = 0;
 
-            while (current) {
-                if (count == index) {
-                    current = null;
-                }
+        // remove first
+        if (index === 0) {
+            this.head = current.next; // shift the head to the next
+        } else {
+            while (count < index) {
                 count ++;
+                previous = current;
                 current = current.next;
             }
-            this.size --;
+
+            previous.next = current.next;
         }
+        this.size --;
     }
 
     // ------------- Clear list -------------
+    clearList() {
+        this.head = null;
+        this.size = 0;
+    }
 
     // ------------- Print list data -------------
     printListData() {
@@ -143,7 +149,10 @@ linkedList.insertFirst(300);
 
 linkedList.printListData();
 
-linkedList.removeAt(0);
+//linkedList.removeAt(2);
+//console.log("After removing at index");
 
-console.log("After removing at index");
+linkedList.clearList();
+console.log("After clearing the list");
+
 linkedList.printListData();
